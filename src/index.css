@@ -1,7 +1,8 @@
 @font-face {
   font-family: "Inter", sans-serif;
-  src: url(fonts/Inter-VariableFont.woff2), url(fonts/Inter-VariableFont.woff),
-    url(fonts/Inter-VariableFont.ttf.ttf);
+  src: url(fonts/Inter-VariableFont.woff2) format("woff2"),
+    url(fonts/Inter-VariableFont.woff) format("woff"),
+    url(fonts/Inter-VariableFont.ttf.ttf) format("truetype");
 }
 
 :root {
