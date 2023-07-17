@@ -5,7 +5,7 @@ export const AppContext = createContext()
 export const useGlobalContext = () => useContext(AppContext)
 
 export const AppProvider = ({ children }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(true)
+  const [isDarkTheme, setIsDarkTheme] = useState(false)
 
   function toggleDarkMode() {
     const darkMode = !isDarkTheme
