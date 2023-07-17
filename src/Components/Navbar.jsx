@@ -1,9 +1,10 @@
-import { useState } from "react"
-import logo from "../assets/iGallery_logo.webp"
+// import logo from "../assets/iGallery_logo.webp"
+import logo from "../assets/iGallery_favicon.svg"
 import { BsGithub, BsFillSunFill, BsFillMoonFill } from "react-icons/bs"
+import { useGlobalContext } from "../context"
 
 function Navbar() {
-  const [isDarkTheme, setIsDarkTheme] = useState(true)
+  const { isDarkTheme, toggleDarkMode } = useGlobalContext()
 
   return (
     <nav className="navbar">
@@ -40,9 +41,15 @@ function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <BsGithub />
+            <BsGithub className="icon" />
           </a>
-          {isDarkTheme ? <BsFillSunFill /> : <BsFillMoonFill />}
+          <button className="toggle-btn" onClick={toggleDarkMode}>
+            {isDarkTheme ? (
+              <BsFillSunFill className="icon" />
+            ) : (
+              <BsFillMoonFill className="icon" />
+            )}
+          </button>
         </div>
       </div>
     </nav>
