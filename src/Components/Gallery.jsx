@@ -1,4 +1,4 @@
-import Gallery_Item from "./PortraitPic"
+import Gallery_Item from "./Gallery_Item"
 import SearchForm from "./SearchForm"
 
 function Gallery() {
