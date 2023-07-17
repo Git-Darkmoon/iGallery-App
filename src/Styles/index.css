@@ -11,9 +11,10 @@
   -webkit-text-size-adjust: 100%;
   --clr-black: hsl(240, 10%, 7%);
   --clr-white: hsl(0, 0%, 98%);
-  --clr-gray: hsl(240, 5%, 64%);
+  --clr-gray: hsl(240, 5%, 58%);
   --clr-glass: hsla(240, 5%, 64%, 0.25);
   --clr-darkGlass: hsla(240, 5%, 50%, 0.25);
+  --clr-accent: hsl(281, 39%, 63%);
   --primary-color: var(--clr-white);
   --secondary-color: var(--clr-black);
   --ff-base: "Inter", sans-serif;
@@ -25,16 +26,96 @@
   --fs-5: clamp(1.81rem, calc(1.65rem + 0.76vw), 2.33rem);
   --fs-6: clamp(2.18rem, calc(1.98rem + 0.91vw), 2.8rem);
   --max-width: 1440px;
+  --fluid-width: calc(100vw - (var(--space-inline) * 2));
   --navbar-height: 3.5rem;
-  --space-inline: 5rem;
+  --space-inline: 7.5rem;
   --radius: 0.4rem;
   --transition: all 0.3s ease-in-out;
 }
 
+/* Custom scrollbar like Mac OS
+Not supports in Firefox and IE */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+::-moz-selection {
+  color: var(--clr-accent);
+}
+
+::selection {
+  color: var(--clr-accent);
+}
+
+/* total width */
+body::-webkit-scrollbar {
+  background-color: var(--secondary-color);
+  width: 1rem;
+}
+
+/* background of the scrollbar except button or resizer */
+body::-webkit-scrollbar-track {
+  background-color: var(--secondary-color);
+}
+
+/* scrollbar itself */
+body::-webkit-scrollbar-thumb {
+  background-color: var(--clr-glass);
+  border-radius: 1rem;
+  border: 0.3rem solid var(--secondary-color);
+}
+
+/* set button(top and bottom of the scrollbar) */
+body::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* total width */
+.gallery-portraits::-webkit-scrollbar {
+  background-color: var(--secondary-color);
+  width: 1rem;
+}
+
+/* background of the scrollbar except button or resizer */
+.gallery-portraits::-webkit-scrollbar-track {
+  background-color: var(--secondary-color);
+}
+
+/* scrollbar itself */
+.gallery-portraits::-webkit-scrollbar-thumb {
+  background-color: var(--clr-glass);
+  border-radius: 1rem;
+  border: 0.3rem solid var(--secondary-color);
+}
+
+/* set button(top and bottom of the scrollbar) */
+.gallery-portraits::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* total width */
+.gallery-squares::-webkit-scrollbar {
+  background-color: var(--secondary-color);
+  width: 1rem;
+}
+
+/* background of the scrollbar except button or resizer */
+.gallery-squares::-webkit-scrollbar-track {
+  background-color: var(--secondary-color);
+}
+
+/* scrollbar itself */
+.gallery-squares::-webkit-scrollbar-thumb {
+  background-color: var(--clr-glass);
+  border-radius: 1rem;
+  border: 0.3rem solid var(--secondary-color);
+}
+
+/* set button(top and bottom of the scrollbar) */
+.gallery-squares::-webkit-scrollbar-button {
+  display: none;
 }
 
 body {
@@ -51,13 +132,14 @@ body {
 .dark-theme {
   --primary-color: var(--clr-black);
   --secondary-color: var(--clr-white);
+  --clr-accent: hsl(281, 39%, 50%);
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: var(--fluid-width);
   height: var(--navbar-height);
   border-bottom: 1px solid var(--clr-glass);
 }
@@ -178,11 +260,104 @@ body {
   color: var(--primary-color);
 }
 
+.gallery-container {
+  box-shadow: 0 0 4px 0.5px var(--clr-glass);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  -webkit-margin-before: 3em;
+          margin-block-start: 3em;
+  -webkit-margin-after: 2em;
+          margin-block-end: 2em;
+}
+.gallery-container .gallery-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-margin-before: 1.5rem;
+          margin-block-start: 1.5rem;
+  -webkit-margin-after: 1rem;
+          margin-block-end: 1rem;
+}
+.gallery-container .gallery-form #gallery-prompt {
+  font-size: var(--fs-1);
+  width: 70%;
+  padding-block: 0.5em;
+  padding-inline: 1em;
+  background-color: var(--clr-glass);
+  border: 1px solid var(--clr-darkGlass);
+  border-radius: var(--radius);
+  color: var(--primary-color);
+}
+.gallery-container .gallery-subtitle {
+  margin-block: 1.65em;
+}
+.gallery-container .gallery-subtitle .subtitle-1 {
+  color: var(--primary-color);
+  font-size: var(--fs-3);
+}
+.gallery-container .gallery-subtitle .subtitle-2 {
+  color: var(--clr-gray);
+  font-size: var(--fs-1);
+  font-weight: 400;
+}
+.gallery-container .gallery-portraits {
+  display: flex;
+  overflow: auto;
+  gap: 2rem;
+  padding-bottom: 1.35em;
+  max-width: var(--fluid-width);
+  max-height: 29rem;
+}
+.gallery-container .gallery-portraits .portrait-card {
+  display: inline-block;
+}
+.gallery-container .gallery-portraits img {
+  height: 350px;
+  width: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: var(--radius);
+}
+.gallery-container .gallery-squares {
+  display: flex;
+  overflow: auto;
+  gap: 2rem;
+  padding-bottom: 1.35em;
+  max-width: var(--fluid-width);
+  max-height: 18rem;
+}
+.gallery-container .gallery-squares .portrait-card {
+  display: inline-block;
+}
+.gallery-container .gallery-squares img {
+  height: 200px;
+  width: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 100%;
+}
+.gallery-container .card-title {
+  padding-top: 0.5em;
+  color: var(--primary-color);
+  font-size: var(--fs-1);
+}
+.gallery-container .card-subtitle {
+  color: var(--clr-gray);
+  font-size: var(--fs-0);
+  font-weight: 400;
+}
+
 .footer {
-  position: fixed;
+  position: relative;
   bottom: 0;
   width: calc(100vw - var(--space-inline) * 2);
   height: var(--navbar-height);
+  -webkit-padding-after: 2em;
+          padding-block-end: 2em;
   display: flex;
   justify-content: center;
   align-items: center;
