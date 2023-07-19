@@ -1,12 +1,23 @@
+import { useGlobalContext } from "../context"
+
 function SearchForm() {
+  const { setUserPrompt } = useGlobalContext()
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    const inputValue = e.target.elements.prompt.value
+    setUserPrompt(inputValue)
+  }
+
   return (
-    <form className="gallery-form">
+    <form className="gallery-form" onSubmit={handleSubmit}>
       <input
         type="text"
-        name="searchPic"
+        name="prompt"
         id="gallery-prompt"
         placeholder="Search whatever, maybe cats..."
         required
+        autoComplete="off"
       />
       <button type="submit" className="btn primary-btn">
         See Photos
