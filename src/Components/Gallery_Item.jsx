@@ -1,9 +1,20 @@
-function Gallery_Item({ pic }) {
+import { useGlobalContext } from "../context"
+
+function Gallery_Item(props) {
+  const { userPrompt } = useGlobalContext()
+
+  const { urls, description, alt_description } = props
+
   return (
     <article>
-      <img src={pic} alt="" />
-      <h3 className="card-title">lorem ipsum</h3>
-      <h5 className="card-subtitle">lorem ipsum</h5>
+      <img src={urls?.regular} alt={alt_description} />
+      <h3 className="card-title">
+        {description?.slice(0, 10) ?? `Portrait pic of ${userPrompt}`}
+      </h3>
+      <h5 className="card-subtitle">
+        {alt_description?.slice(0, 30) ??
+          `Just a pretty pic for ${userPrompt}  `}
+      </h5>
     </article>
   )
 }
