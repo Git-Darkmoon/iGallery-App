@@ -7,6 +7,8 @@
 
 /* @link https://utopia.fyi/type/calculator/?c=350,16,1.2,1440,20,1.414,5,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
+// Styles made for desktop view:
+
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -353,5 +355,13 @@ body {
     text-underline-position: under;
     font-weight: 700;
     color: var(--clr-gray);
+  }
+}
+
+// Media Queries for mobile view:
+
+@media (width <= 48rem) {
+  :root {
+    --space-inline: 2rem;
   }
 }

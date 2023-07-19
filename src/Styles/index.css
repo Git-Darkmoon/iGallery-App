@@ -371,4 +371,10 @@ body {
   text-underline-position: under;
   font-weight: 700;
   color: var(--clr-gray);
+}
+
+@media (width <= 48rem) {
+  :root {
+    --space-inline: 2rem;
+  }
 }/*# sourceMappingURL=index.css.map */
