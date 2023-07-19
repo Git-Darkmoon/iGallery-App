@@ -8,6 +8,7 @@ export const useGlobalContext = () => useContext(AppContext)
 export const AppProvider = ({ children }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false)
   const [userPrompt, setUserPrompt] = useState("landscapes")
+  const [isSideOpen, setIsSideOpen] = useState(false)
 
   const API_URL = `https://api.unsplash.com/search/photos?client_id=${
     import.meta.env.VITE_API_KEY
@@ -26,6 +27,13 @@ export const AppProvider = ({ children }) => {
     document.body.classList.toggle("dark-theme", isDarkTheme)
   }, [])
 
+  function openSidebar() {
+    setIsSideOpen(true)
+  }
+  function closeSidebar() {
+    setIsSideOpen(false)
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -34,6 +42,9 @@ export const AppProvider = ({ children }) => {
         userPrompt,
         setUserPrompt,
         API_URL,
+        isSideOpen,
+        openSidebar,
+        closeSidebar,
       }}
     >
       {children}
