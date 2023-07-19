@@ -20,7 +20,7 @@ function SearchForm() {
         autoComplete="off"
       />
       <button type="submit" className="btn primary-btn">
-        See Photos
+        Search
       </button>
     </form>
   )
