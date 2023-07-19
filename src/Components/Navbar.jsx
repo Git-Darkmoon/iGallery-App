@@ -5,11 +5,11 @@ import { RxHamburgerMenu } from "react-icons/rx"
 import { useGlobalContext } from "../context"
 
 function Navbar() {
-  const { isDarkTheme, toggleDarkMode } = useGlobalContext()
+  const { isDarkTheme, openSidebar, toggleDarkMode } = useGlobalContext()
 
   return (
     <nav className="navbar">
-      <RxHamburgerMenu className="navbar-burger icon" />
+      <RxHamburgerMenu className="navbar-burger icon" onClick={openSidebar} />
       <div className="primary-nav">
         <picture className="logo-container">
           <img src={logo} alt="" id="logo" />
