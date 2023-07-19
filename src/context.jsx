@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { createContext, useContext, useEffect, useState } from "react"
 
 export const AppContext = createContext()
@@ -6,6 +7,11 @@ export const useGlobalContext = () => useContext(AppContext)
 
 export const AppProvider = ({ children }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false)
+  const [userPrompt, setUserPrompt] = useState("landscapes")
+
+  const API_URL = `https://api.unsplash.com/search/photos?client_id=${
+    import.meta.env.VITE_API_KEY
+  }`
 
   function toggleDarkMode() {
     const darkMode = !isDarkTheme
@@ -21,7 +27,15 @@ export const AppProvider = ({ children }) => {
   }, [])
 
   return (
-    <AppContext.Provider value={{ isDarkTheme, toggleDarkMode }}>
+    <AppContext.Provider
+      value={{
+        isDarkTheme,
+        toggleDarkMode,
+        userPrompt,
+        setUserPrompt,
+        API_URL,
+      }}
+    >
       {children}
     </AppContext.Provider>
   )
