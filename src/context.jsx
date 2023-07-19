@@ -10,12 +10,9 @@ export const AppProvider = ({ children }) => {
   const [userPrompt, setUserPrompt] = useState("landscapes")
   const [isSideOpen, setIsSideOpen] = useState(false)
 
-  // const API_URL = `https://api.unsplash.com/search/photos?client_id=${
-  //   import.meta.env.VITE_API_KEY
-  // }`
-
-  const API_URL =
-    "https://api.unsplash.com/search/photos?client_id=-w86sI1GUsmCuEsBgrvHA2fJOtTB7SypfWfo8BlKfO4"
+  const API_URL = `https://api.unsplash.com/search/photos?client_id=${
+    import.meta.env.VITE_API_KEY
+  }`
 
   function toggleDarkMode() {
     const darkMode = !isDarkTheme
