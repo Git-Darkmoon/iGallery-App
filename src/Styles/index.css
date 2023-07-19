@@ -3,6 +3,10 @@
   src: url(fonts/Inter-VariableFont.woff2) format("woff2"), url(fonts/Inter-VariableFont.woff) format("woff"), url(fonts/Inter-VariableFont.ttf.ttf) format("truetype");
 }
 /* @link https://utopia.fyi/type/calculator/?c=350,16,1.2,1440,20,1.414,5,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -310,7 +314,7 @@ body {
   gap: 2rem;
   padding-bottom: 1.35em;
   max-width: var(--fluid-width);
-  max-height: 29rem;
+  max-height: 30em;
 }
 .gallery-container .gallery-portraits .portrait-card {
   display: inline-block;
@@ -330,7 +334,7 @@ body {
   gap: 2rem;
   padding-bottom: 1.35em;
   max-width: var(--fluid-width);
-  max-height: 18rem;
+  max-height: 20em;
 }
 .gallery-container .gallery-squares .portrait-card {
   display: inline-block;
@@ -353,6 +357,7 @@ body {
   color: var(--clr-gray);
   font-size: var(--fs-0);
   font-weight: 400;
+  margin-top: 0.3em;
 }
 
 .footer {

@@ -9,6 +9,10 @@
 
 // Styles made for desktop view:
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -322,11 +326,11 @@ body {
   }
 
   .gallery-portraits {
-    @include galleryFlex(29rem, 350px, 250px, var(--radius));
+    @include galleryFlex(30em, 350px, 250px, var(--radius));
   }
 
   .gallery-squares {
-    @include galleryFlex(18rem, 200px, 200px, 100%);
+    @include galleryFlex(20em, 200px, 200px, 100%);
   }
   .card-title {
     padding-top: 0.5em;
@@ -337,6 +341,7 @@ body {
     color: var(--clr-gray);
     font-size: var(--fs-0);
     font-weight: 400;
+    margin-top: 0.3em;
   }
 }
 
