@@ -1,6 +1,7 @@
 // import logo from "../assets/iGallery_logo.webp"
 import logo from "../assets/iGallery_favicon.svg"
 import { BsGithub, BsFillSunFill, BsFillMoonFill } from "react-icons/bs"
+import { RxHamburgerMenu } from "react-icons/rx"
 import { useGlobalContext } from "../context"
 
 function Navbar() {
@@ -8,6 +9,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
+      <RxHamburgerMenu className="navbar-burger icon" />
       <div className="primary-nav">
         <picture className="logo-container">
           <img src={logo} alt="" id="logo" />
