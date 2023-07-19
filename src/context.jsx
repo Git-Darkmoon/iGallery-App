@@ -15,7 +15,7 @@ export const AppProvider = ({ children }) => {
   // }`
 
   const API_URL =
-    "https://api.unsplash.com/search/photos?client_id-w86sI1GUsmCuEsBgrvHA2fJOtTB7SypfWfo8BlKfO4"
+    "https://api.unsplash.com/search/photos?client_id=-w86sI1GUsmCuEsBgrvHA2fJOtTB7SypfWfo8BlKfO4"
 
   function toggleDarkMode() {
     const darkMode = !isDarkTheme
