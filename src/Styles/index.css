@@ -143,6 +143,9 @@ body {
   height: var(--navbar-height);
   border-bottom: 1px solid var(--clr-glass);
 }
+.navbar .navbar-burger {
+  display: none;
+}
 .navbar .primary-nav {
   display: flex;
   gap: 2rem;
@@ -233,6 +236,7 @@ body {
   -webkit-margin-after: 1.5em;
           margin-block-end: 1.5em;
   max-width: 50ch;
+  text-wrap: balance;
   color: var(--clr-gray);
   font-size: var(--fs-2);
 }
@@ -376,5 +380,13 @@ body {
 @media (width <= 48rem) {
   :root {
     --space-inline: 2rem;
+  }
+  .navbar .navbar-burger {
+    display: flex;
+    font-size: var(--fs-3);
+    cursor: pointer;
+  }
+  .navbar .primary-nav {
+    display: none;
   }
 }/*# sourceMappingURL=index.css.map */
